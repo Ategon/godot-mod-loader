@@ -300,6 +300,10 @@ func _setup_mods() -> int:
 		if mod_dir_name == "." or mod_dir_name == "..":
 			continue
 
+		# Ignore hidden directories
+		if mod_dir_name.begins_with("."):
+			continue
+
 		# Init the mod data
 		_init_mod_data(mod_dir_name)
 		unpacked_mods_count += 1
